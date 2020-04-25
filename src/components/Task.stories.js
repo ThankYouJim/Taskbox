@@ -25,7 +25,6 @@ export const actionsData = {
   onArchiveTask: action("onArchiveTask"),
 };
 
-
 // Create sub headings: Default, Pinned Archived
 export const Default = () => <Task task={{ ...taskData }} {...actionsData} />;
 

@@ -1,14 +1,15 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import store from './lib/redux';
+import React, {useReducer, useContext} from 'react';
 
 import InboxScreen from './components/InboxScreen';
 
+const MyContext = React.createContext();
+const MyProvider = MyContext.Provider;
+
 function App() {
   return (
-    <Provider store={store}>
+    <MyProvider>
       <InboxScreen />
-    </Provider>
+    </MyProvider>
   )
 }
 

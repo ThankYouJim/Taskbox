@@ -1,15 +1,13 @@
-import React, { useReducer } from "react";
+import React from "react";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import Task from "./Task";
-import { defaultTasksData } from "./helper";
-import {reducer, archiveTask, pinTask} from "./hooks";
- 
-const initialState = { tasks: defaultTasksData };
+import { archiveTask, pinTask } from "./hooks";
+import { TASK_STATUS } from "../utils/constants";
 
 function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
+  console.log(...tasks);
   const LoadingRow = (
     <div className="loading-item">
       <span className="glow-checkbox" />
@@ -32,7 +30,7 @@ function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
     );
   }
 
-  if (state.tasks.length === 0) {
+  if (tasks.length === 0) {
     return (
       <div className="list-items">
         <div className="wrapper-message">
@@ -45,28 +43,44 @@ function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
   }
 
   const tasksInOrder = [
-    ...state.tasks.filter((t) => t.state === "TASK_PINNED"),
-    ...state.tasks.filter((t) => t.state !== "TASK_PINNED"),
+    ...tasks.filter((t) => t.state === TASK_STATUS.PINNED),
+    ...tasks.filter((t) => t.state === TASK_STATUS.INBOX),
+    ...tasks.filter((t) => t.state === TASK_STATUS.ARCHIVED),
   ];
 
   return (
-      <div className="list-items">
-        {tasksInOrder.map((task) => (
-          <Task key={task.id} task={task} onArchiveTask={archiveTask} onPinTask={pinTask}/>
-        ))}
-      </div>
+    <div className="list-items">
+      {tasksInOrder.map((task) => (
+        <Task
+          key={task.id}
+          task={task}
+          onArchiveTask={onArchiveTask}
+          onPinTask={onPinTask}
+        />
+      ))}
+    </div>
   );
 }
 
 PureTaskList.propTypes = {
   loading: PropTypes.bool,
   tasks: PropTypes.arrayOf(Task.propTypes.task).isRequired,
-  onPinTask: PropTypes.func.isRequired,
   onArchiveTask: PropTypes.func.isRequired,
+  onPinTask: PropTypes.func.isRequired,
 };
 
 PureTaskList.defaultProps = {
   loading: false,
 };
 
-export default PureTaskList;
+const mapStateToProps = (state) => ({
+  tasks: state.tasks,
+  loading: state.loading,
+});
+
+const mapDispatchToProps = {
+  onArchiveTask: archiveTask,
+  onPinTask: pinTask,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PureTaskList);

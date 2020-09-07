@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { TASK_STATUS } from "../utils/constants";
 
 // Contextualise parameters
 export default function Task({
@@ -7,14 +8,18 @@ export default function Task({
   onArchiveTask,
   onPinTask,
 }) {
+  const isArchived = state === TASK_STATUS.ARCHIVED;
+  const [selected, setSelected] = useState(isArchived);
+
   return (
     <div className={`list-item ${state}`}>
       <label className="checkbox">
         <input
           type="checkbox"
-          defaultChecked={state === "TASK_ARCHIVED"}
-          disabled={true}
+          checked={isArchived}
+          disabled={isArchived}
           name="checked"
+          readOnly
         />
         <span className="checkbox-custom" onClick={() => onArchiveTask(id)} />
       </label>
@@ -28,7 +33,7 @@ export default function Task({
       </div>
 
       <div className="actions" onClick={(event) => event.stopPropagation()}>
-        {state !== "TASK_ARCHIVED" && (
+        {state !== TASK_STATUS.ARCHIVED && (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
           <a onClick={() => onPinTask(id)}>
             <span className={`icon-star`} />

@@ -1,8 +1,10 @@
-// Plug a sample data to be fed to the Task component
+import {TASK_STATUS} from './constants';
+
+/ Plug a sample data to be fed to the Task component
 export const taskData = {
   id: "1",
   title: "Test Task",
-  state: "TASK_INBOX",
+  state: TASK_STATUS.INBOX,
   updatedAt: new Date(2018, 0, 1, 9, 0),
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import TaskList from "./TaskList";
+import AddTask from "./AddTask";
 
 export function PureInboxScreen({ error }) {
   if (error) {
@@ -22,6 +23,7 @@ export function PureInboxScreen({ error }) {
         </h1>
       </nav>
       <TaskList />
+      <AddTask />
     </div>
   );
 }

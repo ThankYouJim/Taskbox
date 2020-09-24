@@ -854,9 +854,6 @@ a:focus {
   white-space: nowrap;
   flex: 1;
 }
-.list-item .title input{
-  padding: 0px;
-}
 .list-item .subtitle {
   font-size: 10px;
   line-height: normal;
@@ -865,6 +862,7 @@ a:focus {
 .list-item input[type="text"] {
   background: transparent;
   width: 100%;
+  padding: 0px;
 }
 .list-item input[type="text"]:focus {
   cursor: text;
@@ -913,6 +911,16 @@ a:focus {
 .list-item.checked .delete-item {
   display: inline-block;
 }
+.list-item .editable {
+  background-color: white !important;
+  border-radius: .25rem;
+  border: 1px solid #eee;
+  padding: .25rem !important;
+}
+.list-item .editable::placeholder {
+  color: #aaa;
+}
+
 .loading-item {
   height: 3rem;
   width: 100%;

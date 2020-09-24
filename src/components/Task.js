@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { TASK_STATUS } from "../utils/constants";
 
@@ -9,7 +9,6 @@ export default function Task({
   onPinTask,
 }) {
   const isArchived = state === TASK_STATUS.ARCHIVED;
-  const [selected, setSelected] = useState(isArchived);
 
   return (
     <div className={`list-item ${state}`}>

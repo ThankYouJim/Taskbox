@@ -7,7 +7,6 @@ import { archiveTask, pinTask } from "./hooks";
 import { TASK_STATUS } from "../utils/constants";
 
 function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
-  console.log(...tasks);
   const LoadingRow = (
     <div className="loading-item">
       <span className="glow-checkbox" />

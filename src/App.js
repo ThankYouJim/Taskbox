@@ -1,10 +1,9 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import store from './lib/redux';
-import InboxScreen from './components/InboxScreen';
+import React from "react";
+import { Provider } from "react-redux";
+import store from "./lib/redux";
+import InboxScreen from "./components/InboxScreen";
 
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
-
+import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
 
 function App() {
   return (
@@ -12,7 +11,7 @@ function App() {
       <InboxScreen />
       <AmplifySignOut />
     </Provider>
-  )
+  );
 }
 
 export default withAuthenticator(App);

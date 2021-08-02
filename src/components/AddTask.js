@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { API } from "aws-amplify";
 import { addTask } from "../lib/redux";
 
 function AddTask({ onAddTask }) {

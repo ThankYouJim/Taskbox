@@ -1,12 +1,16 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import store from './lib/redux';
-import InboxScreen from './components/InboxScreen';
+import React, {useEffect} from "react";
+import { Provider } from "react-redux";
+import store from "./lib/redux";
+import InboxScreen from "./components/InboxScreen";
 
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
-
+import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
+import { fetchTasks } from "./helpers";
 
 function App() {
+  useEffect(() => {
+    fetchTasks();
+  })
+  
   return (
     <Provider store={store}>
       <InboxScreen />

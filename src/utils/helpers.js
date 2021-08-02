@@ -1,6 +1,6 @@
 import {TASK_STATUS} from './constants';
 
-/ Plug a sample data to be fed to the Task component
+// Plug a sample data to be fed to the Task component
 export const taskData = {
   id: "1",
   title: "Test Task",

@@ -1,9 +1,4 @@
-// src/lib/redux.js
-
-// A simple redux store/actions/reducer implementation.
-// A true app would be more complex and separated into different files.
 import { createStore } from "redux";
-import { TASK_STATUS } from "../utils/constants";
 import {
   FETCH_TASKS,
   ARCHIVE_TASK,

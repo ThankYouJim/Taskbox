@@ -1,4 +1,3 @@
-import { v4 } from "uuid";
 import {
   FETCH_TASKS,
   ARCHIVE_TASK,
@@ -6,7 +5,7 @@ import {
   ADD_TASK,
   DELETE_TASK,
 } from "./types";
-import { TASK_STATUS } from "../utils/constants";
+import { newTask } from "../utils/helpers";
 
 export const fetchTasks = (tasks) => ({
   type: FETCH_TASKS,
@@ -20,12 +19,7 @@ export const pinTask = (id) => ({ type: PIN_TASK, id });
 export const addTask = (title) => {
   return {
     type: ADD_TASK,
-    task: {
-      id: v4(),
-      title,
-      state: TASK_STATUS.INBOX,
-      archivedAt: null,
-    },
+    task: newTask(title),
   };
 };
 

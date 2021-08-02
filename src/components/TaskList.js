@@ -6,7 +6,7 @@ import Task from "./Task";
 import { archiveTask, pinTask } from "../lib/actions";
 import { TASK_STATUS } from "../utils/constants";
 
-function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
+const PureTaskList = ({ loading, tasks, onPinTask, onArchiveTask }) => {
   const LoadingRow = (
     <div className="loading-item">
       <span className="glow-checkbox" />
@@ -42,9 +42,9 @@ function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
   }
 
   const tasksInOrder = [
-    ...tasks.filter((t) => t.state === TASK_STATUS.PINNED),
-    ...tasks.filter((t) => t.state === TASK_STATUS.INBOX),
-    ...tasks.filter((t) => t.state === TASK_STATUS.ARCHIVED),
+    ...tasks.filter((t) => t.status === TASK_STATUS.PINNED),
+    ...tasks.filter((t) => t.status === TASK_STATUS.INBOX),
+    ...tasks.filter((t) => t.status === TASK_STATUS.ARCHIVED),
   ];
 
   return (

@@ -1,4 +1,4 @@
-import {v4} from 'uuid';
+import { v4 } from "uuid";
 import {
   FETCH_TASKS,
   ARCHIVE_TASK,
@@ -28,3 +28,5 @@ export const addTask = (title) => {
     },
   };
 };
+
+export const deleteTask = (id) => ({ type: DELETE_TASK, id });

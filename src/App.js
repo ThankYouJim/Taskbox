@@ -4,7 +4,7 @@ import store from "./lib/redux";
 import InboxScreen from "./components/InboxScreen";
 
 import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
-import { fetchTasks } from "./helpers";
+import { fetchTasks } from "./lib/actions";
 
 function App() {
   useEffect(() => {
@@ -14,9 +14,10 @@ function App() {
   return (
     <Provider store={store}>
       <InboxScreen />
-      <AmplifySignOut />
+      {/* <AmplifySignOut /> */}
     </Provider>
   )
 }
 
-export default withAuthenticator(App);
+// export default withAuthenticator(App);
+export default App;

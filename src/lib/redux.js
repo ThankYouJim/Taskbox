@@ -26,8 +26,8 @@ function taskStateReducer(taskState) {
 
 // The reducer describes how the contents of the store change for each action
 export const reducer = (state, action) => {
-  // console.log("\nSTATE", state);
-  // console.log("\nACTION", action);
+  console.log("\nSTATE", state);
+  console.log("\nACTION", action);
   switch (action.type) {
     case FETCH_TASKS:
       return state.tasks = action.tasks;

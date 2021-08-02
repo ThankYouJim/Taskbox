@@ -1,4 +1,4 @@
-import {TASK_STATUS} from './constants';
+import { TASK_STATUS } from "./constants";
 
 // Plug a sample data to be fed to the Task component
 export const taskData = {

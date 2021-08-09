@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import TaskList from "./TaskList";
 import AddTask from "./AddTask";
 
+import Container from "react-bootstrap/Container";
+
 export function PureInboxScreen({ error }) {
   if (error) {
     return (
@@ -22,8 +24,10 @@ export function PureInboxScreen({ error }) {
           <span className="title-wrapper">Taskbox</span>
         </h1>
       </nav>
-      <TaskList />
-      <AddTask />
+      <Container>
+        <TaskList />
+        <AddTask />
+      </Container>
     </div>
   );
 }

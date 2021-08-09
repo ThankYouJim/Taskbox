@@ -23,7 +23,6 @@ const Task = ({ task: { id, title, status, createdAt }, onArchiveTask, onPinTask
         </div>
         <div className="subtitle">{createdAt.toLocaleString()}</div>
       </div>
-
       <div className="actions" onClick={(event) => event.stopPropagation()}>
         {status !== TASK_STATUS.ARCHIVED && (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
@@ -41,6 +40,7 @@ Task.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
+    createdAt: PropTypes.instanceOf(Date).isRequired
   }),
   onArchiveTask: PropTypes.func,
   onPinTask: PropTypes.func,

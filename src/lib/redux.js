@@ -6,14 +6,20 @@ import {
   ADD_TASK,
   DELETE_TASK,
 } from "./types";
+import { TASK_STATUS } from "../utils/constants";
 
-// All our reducers simply change the status of a single task.
+// Toggle the status
 function taskStateReducer(taskState) {
   return (state, action) => {
     return {
       ...state,
       tasks: state.tasks.map((task) =>
-        task.id === action.id ? { ...task, status: taskState } : task
+        task.id === action.id
+          ? {
+              ...task,
+              status: task.status === taskState ? TASK_STATUS.INBOX : taskState,
+            }
+          : task
       ),
     };
   };
@@ -25,13 +31,15 @@ export const reducer = (state, action) => {
   console.log("\nACTION", action);
   switch (action.type) {
     case FETCH_TASKS:
-      return state.tasks = action.tasks;
+      return (state.tasks = action.tasks);
     case ARCHIVE_TASK:
-      return taskStateReducer("TASK_ARCHIVED")(state, action);
+      return taskStateReducer(TASK_STATUS.ARCHIVED)(state, action);
     case PIN_TASK:
-      return taskStateReducer("TASK_PINNED")(state, action);
+      return taskStateReducer(TASK_STATUS.PINNED)(state, action);
     case ADD_TASK:
       return { ...state, tasks: [...state.tasks, action.task] };
+    case DELETE_TASK:
+      return state; // TODO
     default:
       return state;
   }

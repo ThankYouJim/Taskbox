@@ -7,7 +7,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "aws-amplify": "^3.3.3",
+    "aws-amplify": "^4.2.2",
     "bootstrap": "^5.0.2",
     "graphql": "^15.3.0",
     "immutable": "^4.0.0-rc.12",
@@ -15,17 +15,14 @@
     "react-bootstrap": "^2.0.0-beta.4",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
-    "react-scripts": "^3.4.3",
     "redux": "^4.0.5",
     "uuid": "^8.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build",
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,13 +40,10 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^5.3.18",
-    "@storybook/addon-links": "^5.3.18",
-    "@storybook/addon-storyshots": "^5.3.18",
-    "@storybook/addons": "^5.3.18",
-    "@storybook/preset-create-react-app": "^2.1.1",
-    "@storybook/react": "^5.3.18",
-    "react-test-renderer": "^16.13.1",
-    "storybook-chromatic": "^3.5.2"
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "babel-jest": "^27.0.6",
+    "jest": "^27.0.6",
+    "react-test-renderer": "^16.14.0"
   }
 }

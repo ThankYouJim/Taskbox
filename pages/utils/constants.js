@@ -1,0 +1,5 @@
+export const TASK_STATUS = {
+  INBOX: "TASK_INBOX",
+  PINNED: "TASK_PINNED",
+  ARCHIVED: "TASK_ARCHIVED",
+};

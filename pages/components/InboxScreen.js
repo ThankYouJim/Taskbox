@@ -18,7 +18,7 @@ export function PureInboxScreen({ error }) {
     );
   }
   return (
-    <div className="page lists-show" style={{background: 'pink'}}>
+    <div className="page lists-show">
       <nav>
         <h1 className="title-page">
           <span className="title-wrapper">Taskbox</span>

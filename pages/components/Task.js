@@ -40,7 +40,7 @@ Task.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
-    createdAt: PropTypes.instanceOf(Date).isRequired
+    createdAt: PropTypes.string.isRequired
   }),
   onArchiveTask: PropTypes.func,
   onPinTask: PropTypes.func,

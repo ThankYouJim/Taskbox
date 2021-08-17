@@ -1,16 +1,10 @@
 import {
-  FETCH_TASKS,
   ARCHIVE_TASK,
   PIN_TASK,
   ADD_TASK,
   DELETE_TASK,
 } from "./types";
 import { newTask } from "../utils/helpers";
-
-export const fetchTasks = (tasks) => ({
-  type: FETCH_TASKS,
-  tasks,
-});
 
 export const archiveTask = (id) => ({ type: ARCHIVE_TASK, id });
 

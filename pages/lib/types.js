@@ -1,4 +1,3 @@
-export const FETCH_TASKS = "FETCH_TASKS";
 export const ARCHIVE_TASK = "ARCHIVE_TASK";
 export const PIN_TASK = "PIN_TASK";
 export const UNPIN_TASK = "UNPIN_TASK";

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { TASK_STATUS } from "../utils/constants";
 
 const Task = ({ task: { id, title, status, createdAt }, onArchiveTask, onPinTask }) => {
+  console.log(id, title, status, createdAt);
   const isArchived = status === TASK_STATUS.ARCHIVED;
 
   return (

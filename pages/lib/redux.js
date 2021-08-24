@@ -1,15 +1,15 @@
 import { createStore } from "redux";
 import {
-  FETCH_TASKS,
   ARCHIVE_TASK,
   PIN_TASK,
   ADD_TASK,
   DELETE_TASK,
 } from "./types";
+import { initialState } from "../utils/helpers";
 import { TASK_STATUS } from "../utils/constants";
 import { loadState, saveState } from "./localStorage";
 
-// Toggle the status
+// Toggles the status of tasks
 function taskStateReducer(taskState) {
   return (state, action) => {
     return {
@@ -27,7 +27,7 @@ function taskStateReducer(taskState) {
 }
 
 // The reducer describes how the contents of the store change for each action
-export const reducer = (state, action) => {
+export const reducer = (state = initialState, action) => {
   console.log("\nSTATE", state);
   console.log("\nACTION", action);
   switch (action.type) {

@@ -18,12 +18,17 @@ export const defaultTasksData = [
   { ...taskData, id: "6", title: "Task 6" },
 ];
 
-export function newTask(title) {
+export const initialState = {
+  tasks: [],
+  loading: false,
+};
+
+export const newTask = (title) => {
   return {
     id: v4(),
     title, 
     status: TASK_STATUS.INBOX,
-    createdAt: new Date(),
+    createdAt: (new Date()).toLocaleDateString(),
     updatedAt: null,
     archivedAt: null
   };

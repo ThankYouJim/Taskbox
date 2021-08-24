@@ -1,7 +1,4 @@
-const initialState = {
-  tasks: [],
-  loading: false,
-};
+import { initialState } from "../utils/helpers";
 
 export const loadState = () => {
   try {
